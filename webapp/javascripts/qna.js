@@ -32,9 +32,13 @@ function deleteAnswer(e){
 	 e.preventDefault();
 	 
 	 var url = "/api/delete.next";
-
+	 var answerId = e.target.getAttribute("name");
+	 url = url+"?answerId="+answerId;
+	 console.log(url);
+	 
 	 var request = new XMLHttpRequest();
 	 request.open("GET", url, true);
+	 
 	 request.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 	 
 	 request.onreadystatechange = function() {

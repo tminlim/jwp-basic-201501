@@ -75,7 +75,7 @@
  					${answer.contents}
 	            </div>
 	            <div>
-	            	<a href="#">삭제</a>
+	            	<a name = "${answer.answerId}" href="#">삭제</a>
 	            </div>
 	        </div>	    
 		</c:forEach>

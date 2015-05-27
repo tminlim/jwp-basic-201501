@@ -39,4 +39,27 @@ public class AnswerDao {
 		
 		return jdbcTemplate.query(sql, rm, questionId);
 	}
+
+	public void deleteByAnswerID(long answerId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "DELETE FROM ANSWERS WHERE answerId = ?";	
+		jdbcTemplate.update(sql, answerId);
+	}
+
+	public Answer findByAnswerID(long answerId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "select * from answers where answerId=?";	
+		RowMapper<Answer> rm = new RowMapper<Answer>() {
+			@Override
+			public Answer mapRow(ResultSet rs) throws SQLException {
+				return new Answer(
+						rs.getLong("answerId"),
+						rs.getString("writer"), 
+						rs.getString("contents"),
+						rs.getTimestamp("createdDate"), 
+						rs.getLong("questionId"));
+			}
+		};
+		return jdbcTemplate.queryForObject(sql, rm, answerId);
+	}
 }
