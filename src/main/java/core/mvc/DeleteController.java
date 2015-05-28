@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
 import core.utils.ServletRequestUtils;
 
 public class DeleteController extends AbstractController {
-	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
+//	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 	private AnswerDao aDao = new AnswerDao();
 	private QuestionDao qDao = new QuestionDao();
 	

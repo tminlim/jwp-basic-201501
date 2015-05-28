@@ -30,5 +30,9 @@ jstlView("list.jsp”)통해 ModelAndView가 생성된다.
 DispatcherServlet을 통하여 render()메소드 안의list.jsp로 forward(request, response)를 통해서 화면이 보여진다.
 
 #### 8. ListController와 ShowController가 멀티 쓰레드 상황에서 문제가 발생하는 이유에 대해 설명하라.
-* 
+dispatcherServlet에서 private RequestMapping rm; 전역변수가 rm.initMapping()에 의해 다수 접속자가 동일한 컨트롤러를 사용하게 된다.
+예를 들어, A가 list.next에 접속하면 listController를 사용하고, 동시 접속자 B도 list.next에 접속하여 listController를 쓰게 된다.
+
+각각의 controller의 전역변수로 사용되는 QuestionDao, AnswerDao 클래스 안에는 메소드만 있고 공유하는 상태값이 없기 때문에 그대로 두어도 된다. 
+기존의 전역변수인 List<Answer> answers를 사용되는 메소드의 지역변수로 옮겼다.
 

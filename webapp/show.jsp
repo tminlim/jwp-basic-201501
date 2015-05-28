@@ -51,16 +51,7 @@
 	<div class="comments">
 	    <h3>
 	        댓글 수 : ${question.countOfComment}
-	    </h3>
-<!-- 	private long answerId;
-	
-	private String writer;
-	
-	private String contents;
-	
-	private Date createdDate;
-
-	private long questionId; -->	    
+	    </h3>  
 	    
 	    <c:forEach var="answer" items="${answers}">	
 	        <div class="comment">

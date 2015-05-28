@@ -1,6 +1,5 @@
 package next.controller;
 
-import java.util.Date;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +22,7 @@ public class SaveController extends AbstractController {
 	@Override
 	public ModelAndView execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
+		
 		String writer = ServletRequestUtils.getStringParameter(request, "writer");
 		String title = ServletRequestUtils.getStringParameter(request, "title");
 		String contents = ServletRequestUtils.getStringParameter(request, "contents");			
