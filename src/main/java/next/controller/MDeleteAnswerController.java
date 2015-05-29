@@ -1,11 +1,10 @@
-package core.mvc;
+package next.controller;
 
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import next.controller.ShowController;
 import next.dao.AnswerDao;
 import next.dao.QuestionDao;
 import next.model.Answer;
@@ -13,9 +12,11 @@ import next.model.Answer;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import core.mvc.AbstractController;
+import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
-public class DeleteController extends AbstractController {
+public class MDeleteAnswerController extends AbstractController {
 //	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 	private AnswerDao aDao = new AnswerDao();
 	private QuestionDao qDao = new QuestionDao();

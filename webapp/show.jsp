@@ -3,17 +3,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-<style>
-.btnEdit {
-	border: none;
-	padding: 4px 13px;
-	margin-left: 15px;
-	background-color: #F9FCFF;
-	color: #536F93;
-	font-weight: 700;
-	font-size: 0.9em;
-}
-</style>
 <%@ include file="/include/header.jspf"%>
 </head>
 <body>
@@ -42,11 +31,21 @@
 		</div>
 
 		<br /> <a href="/list.next">목록으로</a> 
-		<a class = "btnEdit" href="/editForm.next?questionId=${question.questionId}">
-			수정하기
-		</a>
-
-
+		<a class = "btnAction" href="/editForm.next?questionId=${question.questionId}">수정하기</a>
+		
+ 		<c:choose>
+	    	<c:when test="${question.countOfComment == 0}">
+				<a class = "btnAction" href="/deleteForm.next?questionId=${question.questionId}">삭제하기</a>	    	
+			</c:when>
+	   		 <c:otherwise>
+				<a class = "btnAction not-active" href="#" disabled ="disabled">삭제하기</a>	    	
+	    	</c:otherwise>
+	 	</c:choose>
+	 	
+<%-- 	 	<a class = "btnAction" href="/deleteForm.next?questionId=${question.questionId}" 
+	 	<c:if test="${answers != null}"><c:out value="disabled='disabled'"/></c:if>>삭제하기 </a> --%>
+	 	
+	 	
 		<h3>답변</h3>
 		<div class="answerWrite">
 			<form method="post">

@@ -19,7 +19,7 @@ import core.mvc.Controller;
 import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
-public class AddAnswerController extends AbstractController {
+public class MAddAnswerController extends AbstractController {
 	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
 	private AnswerDao aDao = new AnswerDao();
 	private QuestionDao qDao = new QuestionDao();

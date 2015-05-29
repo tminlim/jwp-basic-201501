@@ -3,12 +3,15 @@ package core.mvc;
 import java.util.HashMap;
 import java.util.Map;
 
-import next.controller.AddAnswerController;
+import next.controller.MAddAnswerController;
+import next.controller.MDeleteAnswerController;
+import next.controller.DeleteQuestionController;
 import next.controller.EditController;
 import next.controller.ListController;
+import next.controller.MDeleteQuestionController;
 import next.controller.SaveController;
 import next.controller.ShowController;
-import next.controller.mListController;
+import next.controller.MListController;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,10 +26,12 @@ public class RequestMapping {
 		mappings.put("/form.next", new ForwardController("form.jsp"));
 		mappings.put("/editForm.next", new EditController());
 		mappings.put("/save.next", new SaveController());
+		mappings.put("/deleteForm.next", new DeleteQuestionController());
 		
-		mappings.put("/api/addanswer.next", new AddAnswerController());
-		mappings.put("/api/delete.next", new DeleteController());		
-		mappings.put("/api/list.next", new mListController());
+		mappings.put("/api/deleteQuestion.next", new MDeleteQuestionController());
+		mappings.put("/api/addAnswer.next", new MAddAnswerController());
+		mappings.put("/api/deleteAnswer.next", new MDeleteAnswerController());		
+		mappings.put("/api/list.next", new MListController());
 	
 		logger.info("Initialized Request Mapping!");
 	}

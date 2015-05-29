@@ -10,7 +10,7 @@ import core.mvc.ModelAndView;
 import next.dao.QuestionDao;
 import next.model.Question;
 
-public class mListController extends AbstractController {
+public class MListController extends AbstractController {
 	private QuestionDao qDao = new QuestionDao();
 	@Override
 	public ModelAndView execute(HttpServletRequest request,

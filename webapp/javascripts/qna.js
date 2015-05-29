@@ -12,7 +12,7 @@ function writeAnswers(e) {
 	 e.preventDefault();
 	 
 	 var answerForm = e.currentTarget.form;
-	 var url = "/api/addanswer.next";
+	 var url = "/api/addAnswer.next";
 	 var params = "questionId=" + answerForm[0].value + "&writer=" + answerForm[1].value + "&contents=" + answerForm[2].value;
 
 	 var request = new XMLHttpRequest();
@@ -23,15 +23,14 @@ function writeAnswers(e) {
 		 if(request.readyState == 4 && request.status == 200) {
 			 location.reload(true);//?
 		 }
-	 }
-	 
+	 }	 
 	 request.send(params);
 }
 
 function deleteAnswer(e){
 	 e.preventDefault();
 	 
-	 var url = "/api/delete.next";
+	 var url = "/api/deleteAnswer.next";
 	 var answerId = e.target.getAttribute("name");
 	 url = url+"?answerId="+answerId;
 	 console.log(url);
@@ -46,7 +45,5 @@ function deleteAnswer(e){
 			 location.reload(true);
 		 }
 	 }
-	 
 	 request.send();	
-	
 }

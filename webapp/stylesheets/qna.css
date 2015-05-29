@@ -1,3 +1,21 @@
+/* add in show.jsp*/
+.btnAction {
+	border: none;
+	padding: 4px 13px;
+	margin-left: 15px;
+	background-color: #F9FCFF;
+	color: #536F93;
+	font-weight: 700;
+	font-size: 0.9em;
+	text-decoration: none;
+}
+.not-active {
+   pointer-events: none;
+   cursor: default;
+   opacity: 0.6;
+   filter: alpha(opacity=60);
+}
+
 /** Main layout **/
 
 html, body {

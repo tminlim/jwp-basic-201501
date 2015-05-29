@@ -45,10 +45,15 @@ public class AnswerDao {
 		String sql = "DELETE FROM ANSWERS WHERE answerId = ?";	
 		jdbcTemplate.update(sql, answerId);
 	}
+	public void deleteAllByQuestionID(long questionId) {
+		JdbcTemplate jdbcTemplate = new JdbcTemplate();
+		String sql = "DELETE FROM ANSWERS WHERE questionId = ?";	
+		jdbcTemplate.update(sql, questionId);
+	}
 
 	public Answer findByAnswerID(long answerId) {
 		JdbcTemplate jdbcTemplate = new JdbcTemplate();
-		String sql = "select * from answers where answerId=?";	
+		String sql = "SELECT * FROM ANSWERS WHERE answerId=?";	
 		RowMapper<Answer> rm = new RowMapper<Answer>() {
 			@Override
 			public Answer mapRow(ResultSet rs) throws SQLException {
