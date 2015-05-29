@@ -37,14 +37,13 @@
 	    	<c:when test="${question.countOfComment == 0}">
 				<a class = "btnAction" href="/deleteForm.next?questionId=${question.questionId}">삭제하기</a>	    	
 			</c:when>
+	    	<c:when test="${sameWriter}">
+				<a class = "btnAction" href="/deleteForm.next?questionId=${question.questionId}">삭제하기</a>	    	
+			</c:when>
 	   		 <c:otherwise>
 				<a class = "btnAction not-active" href="#" disabled ="disabled">삭제하기</a>	    	
 	    	</c:otherwise>
 	 	</c:choose>
-	 	
-<%-- 	 	<a class = "btnAction" href="/deleteForm.next?questionId=${question.questionId}" 
-	 	<c:if test="${answers != null}"><c:out value="disabled='disabled'"/></c:if>>삭제하기 </a> --%>
-	 	
 	 	
 		<h3>답변</h3>
 		<div class="answerWrite">

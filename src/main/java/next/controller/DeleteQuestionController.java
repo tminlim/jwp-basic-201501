@@ -7,41 +7,36 @@ import javax.servlet.http.HttpServletResponse;
 
 import next.dao.AnswerDao;
 import next.dao.QuestionDao;
-import next.model.Answer;
 import next.model.Question;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import core.mvc.AbstractController;
+import core.mvc.Controller;
 import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
-public class ShowController extends AbstractController {
+public class DeleteQuestionController extends AbstractController {
 	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
-	private QuestionDao questionDao = new QuestionDao();
-	private AnswerDao answerDao = new AnswerDao();
-	
+	private QuestionDao qDao = new QuestionDao();
+	private AnswerDao aDao = new AnswerDao();	
+
 	@Override
 	public ModelAndView execute(HttpServletRequest request,
 			HttpServletResponse response) throws Exception {
-
+		
 		long questionId = ServletRequestUtils.getRequiredLongParameter(request, "questionId");
-		logger.debug("showController questionId : {}", questionId);
+		logger.debug("at deleteQuestionController questionId is " + questionId);
 		
-		Question question = questionDao.findById(questionId);
-		List<Answer> answers = answerDao.findAllByQuestionId(questionId);
-
-				
-		ModelAndView mav = jstlView("show.jsp");
+		qDao.delete(questionId);
+		aDao.deleteAllByQuestionID(questionId);
 		
-		mav.addObject("question", question);
-		mav.addObject("answers", answers);
+		List<Question> questionList = qDao.findAll();
+		ModelAndView mav = jstlView("redirect:/list.next");
+		mav.addObject("questions", questionList);
 		
-		for (Answer answer : answers) {
-			if(question.getWriter().equals(answer.getWriter()))
-				mav.addObject("sameWriter", true);				
-		}
 		return mav;
 	}
+
 }
