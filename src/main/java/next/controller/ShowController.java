@@ -27,7 +27,7 @@ public class ShowController extends AbstractController {
 			HttpServletResponse response) throws Exception {
 
 		long questionId = ServletRequestUtils.getRequiredLongParameter(request, "questionId");
-		logger.debug("questionId : {}", questionId);
+		logger.debug("showController questionId : {}", questionId);
 		
 		Question question = questionDao.findById(questionId);
 		List<Answer> answers = answerDao.findAllByQuestionId(questionId);
