@@ -17,7 +17,7 @@ import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
 public class MDeleteAnswerController extends AbstractController {
-//	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
+//	private static final Logger logger = LoggerFactory.getLogger(MDeleteAnswerController.class);
 	private AnswerDao aDao = new AnswerDao();
 	private QuestionDao qDao = new QuestionDao();
 	
@@ -38,5 +38,4 @@ public class MDeleteAnswerController extends AbstractController {
 		
 		return mav;
 	}
-
 }

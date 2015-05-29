@@ -18,7 +18,7 @@ import core.mvc.ModelAndView;
 import core.utils.ServletRequestUtils;
 
 public class DeleteQuestionController extends AbstractController {
-	private static final Logger logger = LoggerFactory.getLogger(ShowController.class);
+	private static final Logger logger = LoggerFactory.getLogger(DeleteQuestionController.class);
 	private QuestionDao qDao = new QuestionDao();
 	private AnswerDao aDao = new AnswerDao();	
 

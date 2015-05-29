@@ -30,7 +30,7 @@ public class RequestMapping {
 		
 		mappings.put("/api/deleteQuestion.next", new MDeleteQuestionController());
 		mappings.put("/api/addAnswer.next", new MAddAnswerController());
-		mappings.put("/api/deleteAnswer.next", new MDeleteAnswerController());		
+		mappings.put("/api/deleteAnswer.next", new MDeleteAnswerController());
 		mappings.put("/api/list.next", new MListController());
 	
 		logger.info("Initialized Request Mapping!");

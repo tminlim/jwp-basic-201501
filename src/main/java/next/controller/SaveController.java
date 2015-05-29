@@ -17,7 +17,7 @@ import core.utils.ServletRequestUtils;
 
 public class SaveController extends AbstractController {
 	private static final Logger logger = LoggerFactory
-			.getLogger(ShowController.class);
+			.getLogger(SaveController.class);
 	private QuestionDao qDao = new QuestionDao();
 
 	@Override

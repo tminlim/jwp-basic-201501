@@ -31,16 +31,16 @@ public class ShowController extends AbstractController {
 		
 		Question question = questionDao.findById(questionId);
 		List<Answer> answers = answerDao.findAllByQuestionId(questionId);
-
 				
 		ModelAndView mav = jstlView("show.jsp");
 		
 		mav.addObject("question", question);
 		mav.addObject("answers", answers);
 		
+		mav.addObject("sameWriter", true);
 		for (Answer answer : answers) {
-			if(question.getWriter().equals(answer.getWriter()))
-				mav.addObject("sameWriter", true);				
+			if(!(question.getWriter().equals(answer.getWriter())))
+				mav.addObject("sameWriter", false);			
 		}
 		return mav;
 	}

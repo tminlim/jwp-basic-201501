@@ -45,6 +45,18 @@
 	    	</c:otherwise>
 	 	</c:choose>
 	 	
+ 		<c:choose>
+	    	<c:when test="${question.countOfComment == 0}">
+				<a class = "btnAction" href="/api/deleteQuestion.next?questionId=${question.questionId}">mobile 삭제하기</a>	    	
+			</c:when>
+	    	<c:when test="${sameWriter}">
+				<a class = "btnAction" href="/api/deleteQuestion.next?questionId=${question.questionId}">mobile 삭제하기</a>	    	
+			</c:when>
+	   		 <c:otherwise>
+				<a class = "btnAction not-active" href="#" disabled ="disabled"> mobile 삭제하기</a>  	
+	    	</c:otherwise>
+	 	</c:choose>
+	 	
 		<h3>답변</h3>
 		<div class="answerWrite">
 			<form method="post">
